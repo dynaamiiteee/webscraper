@@ -81,3 +81,16 @@ elif sentiment_total/ sentiment_paragraph_count <= -0.05:
 else:
     overall_sentiment = "Neutral"
 print(f"Overall Sentiment of the Article: {overall_sentiment}")
+
+# Save the results to a file
+with open('sentiment_results.txt', 'w') as f:
+    f.write(f"Total Sentiment Score: {sentiment_total / sentiment_paragraph_count}\n")
+    f.write(f"Overall Sentiment of the Article: {overall_sentiment}\n")
+    f.write("\nDetailed Sentiment Analysis:\n")
+    for paragraph in paragraphs:
+        text = paragraph.get_text()
+        if text and len(text) >= 175:
+            sentiment = analyzer.polarity_scores(text)
+            f.write(f"Text: {text}\n")
+            f.write(f"Sentiment: {sentiment}\n")
+            f.write("-" * 30 + "\n")
