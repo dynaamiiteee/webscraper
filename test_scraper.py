@@ -1,73 +1,83 @@
 import requests
 from bs4 import BeautifulSoup
+import time
+#this import is for sentiment analysis
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-url = 'https://books.toscrape.com/'
+
+# Initialize the VADER sentiment intensity analyzer
+analyzer = SentimentIntensityAnalyzer()
+
+# negative example
+# https://www.fool.com/investing/2025/03/01/why-navitas-stock-plummeted-today/
+# positive example
+# https://www.fool.com/investing/2025/05/24/rare-signal-for-sp-500-15th-time-75-years-stocks/
+# neutral example
+# https://www.fool.com/investing/2025/05/23/warren-buffetts-warning-why-stock-market-crash/
+
+url = input("Enter the URL of the article: ")
+
+time.sleep(1)  # Sleep to avoid overwhelming the server
 response = requests.get(url)
 html_content = response.text
-
 soup = BeautifulSoup(html_content, 'html.parser')
 
-print(soup.prettify())
 
-# # Example: Extracting all links
-# for link in soup.find_all('a'):
-#     print(link.get('href'))
-# # Example: Extracting all images
-# for img in soup.find_all('img'):
-#     print(img.get('src'))
-# # Example: Extracting all headings
-# for heading in soup.find_all(['h1', 'h2', 'h3']):
-#     print(heading.text)
-# # Example: Extracting all paragraphs
-# for paragraph in soup.find_all('p'):
-#     print(paragraph.text)
-# # Example: Extracting all lists
-# for list_item in soup.find_all('li'):
-#     print(list_item.text)
-# # Example: Extracting all tables
-# for table in soup.find_all('table'):
-#     print(table.text)
-# # Example: Extracting all divs
-# for div in soup.find_all('div'):
-#     print(div.text)
-# # Example: Extracting all spans
-# for span in soup.find_all('span'):
-#     print(span.text)
-# # Example: Extracting all forms
-# for form in soup.find_all('form'):
-#     print(form.text)
-# # Example: Extracting all buttons
-# for button in soup.find_all('button'):
-#     print(button.text)
-# # Example: Extracting all sections
-# for section in soup.find_all('section'):
-#     print(section.text)
-# # Example: Extracting all articles
-# for article in soup.find_all('article'):
-#     print(article.text)
-# # Example: Extracting all footers
-# for footer in soup.find_all('footer'):
-#     print(footer.text)
+# Find the article content
+paragraphs = soup.find_all('p')
 
-# # Example: Extracting data from a specific class
-# for item in soup.find_all(class_='item-class'):
-#     print(item.text)
 
-# try:
-#     # Your scraping logic here
-#     print("Scraping completed successfully.")
-# except AttributeError as e:
-#     print(f"AttributeError: {e}")
-# except requests.exceptions.RequestException as e:
-#     print(f"RequestException: {e}")
+# Exclude paragraphs inside header and footer
+header = soup.find('header')
+footer = soup.find('footer')
+# Function to check if a tag is inside the header or footer
+def is_in_header_or_footer(tag):
+    parent = tag.parent
+    while parent:
+        if parent == header or parent == footer:
+            return True
+        parent = parent.parent
+    return False
+# Filter out paragraphs that are inside the header or footer
+paragraphs = [p for p in paragraphs if not is_in_header_or_footer(p)]
 
-# # Example: Storing data in a list
-# data = []
-# for item in soup.find_all(class_='data-item'):
-#     data.append(item.text)
 
-# print(data)
-# # Example: Saving data to a file
-# with open('output.txt', 'w') as f:
-#     for item in data:
-#         f.write(f"{item}\n")
+# variables to combine the total sentiment of all paragraphs
+sentiment_total = 0
+sentiment_paragraph_count = 0
+
+
+# Loop through each paragraph and analyze sentiment
+for paragraph in paragraphs:
+    text = paragraph.get_text()
+    parent_classes = paragraph.parent.get('class') or []
+    if not text or len(text) < 175: 
+        continue  # Skip short or empty paragraphs
+    elif not any('article' in c for c in parent_classes):
+        continue  # Skip if parent element does not have 'article' in its class
+    else:
+        sentiment = analyzer.polarity_scores(text)
+        print(f"Text: {text}")
+        print(f"Sentiment: {sentiment}")
+        # Determine the overall sentiment based on the compound score
+        sentiment_total += sentiment['compound']
+        sentiment_paragraph_count += 1
+        if sentiment['compound'] >= 0.05:
+            print("  Overall Sentiment: Positive")
+        elif sentiment['compound'] <= -0.05:
+            print("  Overall Sentiment: Negative")
+        else:
+            print("  Overall Sentiment: Neutral")
+        print("-" * 30)
+        time.sleep(0.25)  # Sleep to avoid overwhelming the server
+
+
+# Determine the overall sentiment of the article
+print(f"Total Sentiment Score: {sentiment_total / sentiment_paragraph_count}")
+if sentiment_total/ sentiment_paragraph_count >= 0.05:
+    overall_sentiment = "Positive"
+elif sentiment_total/ sentiment_paragraph_count <= -0.05:
+    overall_sentiment = "Negative"
+else:
+    overall_sentiment = "Neutral"
+print(f"Overall Sentiment of the Article: {overall_sentiment}")
