@@ -1,0 +1,48 @@
+Total Sentiment Score: -0.013930000000000031
+Overall Sentiment of the Article: Neutral
+
+Detailed Sentiment Analysis:
+Text: Founded in 1993, The Motley Fool is a financial services company dedicated to making the world smarter, happier, and richer. The Motley Fool reaches millions of people every month through our premium investing solutions, free guidance and market analysis on Fool.com, top-rated podcasts, and non-profit The Motley Fool Foundation.
+Sentiment: {'neg': 0.132, 'neu': 0.578, 'pos': 0.289, 'compound': 0.8519}
+------------------------------
+Text: Founded in 1993, The Motley Fool is a financial services company dedicated to making the world smarter, happier, and richer. The Motley Fool reaches millions of people every month through our premium investing solutions, free guidance and market analysis on Fool.com, personal finance education, top-rated podcasts, and non-profit The Motley Fool Foundation.
+Sentiment: {'neg': 0.127, 'neu': 0.597, 'pos': 0.277, 'compound': 0.8519}
+------------------------------
+Text: 
+       You're reading a free article with opinions that may differ
+       from The Motley Fool's Premium Investing Services. Become a Motley Fool member today to
+       get instant access to our top analyst recommendations, in-depth research, investing resources,
+       and more. Learn More
+
+Sentiment: {'neg': 0.067, 'neu': 0.814, 'pos': 0.119, 'compound': 0.296}
+------------------------------
+Text: Warren Buffett has a track record that very few investors can match. Berkshire Hathaway (BRK.A -0.16%) (BRK.B 0.11%) stock has returned 20% annually since he took control in 1965, nearly doubling the annual gain in the S&P 500 (^GSPC -0.67%).
+Sentiment: {'neg': 0.0, 'neu': 0.918, 'pos': 0.082, 'compound': 0.5267}
+------------------------------
+Text: Buffett created that value for shareholders by making smart capital allocation decisions. Sometimes that meant buying entire businesses, and other times it meant buying stocks. Regardless, his knack for investing is why Berkshire has become a trillion-dollar company.
+Sentiment: {'neg': 0.0, 'neu': 0.827, 'pos': 0.173, 'compound': 0.7269}
+------------------------------
+Text: However, Buffett just sent Wall Street a warning. Berkshire held a record $348 billion in cash and equivalents on its balance sheet in the first quarter, even though the S&P 500 dropped into correction territory in March. That suggests Buffett struggled to find reasonably priced stocks despite the drawdown, which implies a sharper decline may be coming.
+Sentiment: {'neg': 0.085, 'neu': 0.915, 'pos': 0.0, 'compound': -0.5859}
+------------------------------
+Text: The cyclically adjusted price-to-earnings (CAPE) ratio is used to determine whether stock market indexes are overvalued. It measures price against the average inflation-adjusted earnings from the past decade. The CAPE ratio is sometimes referred to as the Shiller PE ratio because it was developed by Nobel-winning economist Robert Shiller.
+Sentiment: {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+------------------------------
+Text: The S&P 500 currently has a CAPE ratio of 34.8, an expensive valuation seen just 7.6% of the time since the index was created in 1957. The months in which the CAPE ratio topped 34 were clustered around two events: the dot-com bubble (1998 to 2001) and the COVID-19 pandemic (2021 to 2022). And the outcome was always a market crash.
+Sentiment: {'neg': 0.044, 'neu': 0.924, 'pos': 0.032, 'compound': -0.1779}
+------------------------------
+Text: In short, the S&P 500 has always (eventually) crashed after its monthly CAPE ratio topped 34. But there is more bad news. The index has usually generated negative returns over the next few years. The chart shows the S&P 500's average return over the one, two, and three years following monthly CAPE readings above 34.
+Sentiment: {'neg': 0.162, 'neu': 0.838, 'pos': 0.0, 'compound': -0.905}
+------------------------------
+Text: As shown, when the S&P 500 had a monthly CAPE ratio above 34, the index's average return has been negative over the next one, two, and three years. Put differently, history says the index could be lower three years from today.
+Sentiment: {'neg': 0.134, 'neu': 0.866, 'pos': 0.0, 'compound': -0.7096}
+------------------------------
+Text: The situation is further complicated by the major changes to U.S. trade policy made by President Trump. Many economists expect tariffs to raise prices and slow economic growth, possibly to the point of recession. Any economic data that validates those worries could be the trigger that causes the stock market to crash.
+Sentiment: {'neg': 0.138, 'neu': 0.779, 'pos': 0.083, 'compound': -0.5106}
+------------------------------
+Text: There is some good news for patient investors. First, past performance is never a guarantee of future results. The S&P 500 is not obligated to crash simply because it has crashed every time its CAPE ratio has exceeded 34 in the past. The present situation may be an exception to the rule.
+Sentiment: {'neg': 0.032, 'neu': 0.874, 'pos': 0.094, 'compound': 0.5296}
+------------------------------
+Text: Second, the S&P 500's CAPE ratio has been trending higher in recent decades, presumably because its profit margin has also been climbing. Technologies like the internet and cloud computing have made companies more profitable, and artificial intelligence (AI) promises to further improve efficiency. Investors may tolerate higher valuations if profit margins keep rising.
+Sentiment: {'neg': 0.0, 'neu': 0.666, 'pos': 0.334, 'compound': 0.9665}
+------------------------------
