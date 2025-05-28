@@ -11,38 +11,39 @@
 
 Steps to build and/or run the software:
 
-1. Open
-2. That should be all that you need to do.
+1. You will need to install the python libraries used
+2. You will also need to install python
+3. then run the file test_scraper.py
 
 Instructions for using the software:
 
-1. Fill out the title, price, and select whether or not it has been sold.
-2. click 'add product' and the item should add to the list.
-3. type in the title and click 'remove product'
-4. the item should be removed.
-5. Repeat those steps as many times as you would like.
+1. The code will ask for you to input a link to a website.
+2. Select any news article you would like. (The code was tested on [fool.com](https://www.fool.com/) news articles about the stock market.  For the most sure results use an article from that site)
+3. It will then output the results to you.
 
 ## Development Environment 
 
 To recreate the development environment, you need the following software and/or libraries with the specified versions:
 
-* firebase
-* npm
-* node.js
+* requests
+* bs4
+* time
+* nltk
 * python
 
 
 ## Useful Websites to Learn More
 I found these websites useful in developing this software:
 
-* [Node.js](https://nodejs.org/en)
-* [npm](https://www.npmjs.com/)
+* [requests](https://pypi.org/project/requests/)
+* [Beautiful Soup](https://pypi.org/project/beautifulsoup4/)
 * [python](https://www.python.org/)
-* [Firebase](https://firebase.google.com/)
+* [NLTK](https://www.nltk.org/install.html)
+* [time](https://docs.python.org/3/library/time.html)
 ## Future Work
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] Add css to make the items display in a better manner.
-* [ ] Add more options for the add items section and a way to contact the person who posted the item.
-* [ ] Make it into an actual website and only allow a specifc user to edit specific items.
+* [ ] Add code that recursively checks the other website links on each site it checks.
+* [ ] Relate the articles to their main idea or stock they are associated with.
+* [ ] Make a website for it that allows you to enter the link more conveniently.
